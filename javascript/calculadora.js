@@ -9,6 +9,7 @@ class clientesNuevos{
     }
 }
 
+//array
 const clientesRemiseria = [
     {
         nombre: "Daiana Alderete",
@@ -40,7 +41,7 @@ const clientesRemiseria = [
 console.log(clientesRemiseria)
 
 
-
+//variables
 let clienteElegido
 let esperaEnElViaje;
 let espera = 0;
@@ -49,13 +50,14 @@ let totalViaje;
 let descuentoVip
 let descuentoVipFactura
 
+//ciclo para buscar o agregar nuevo cliente
 while (true){
 
     let elegirOpcion = parseInt(prompt("Ingrese el numero de la opción deseada:\n 1- Quiere buscar un cliente?\n 2- Agregar nuevo cliente?"));
 
     if (elegirOpcion == 1){
     let elegirCliente = prompt("Ingrese el nombre del cliente a buscar.");
-
+    //Función de busqueda de cliente
     clienteElegido = clientesRemiseria.find(cliente =>cliente.nombre.toLowerCase().includes(elegirCliente.toLowerCase()))
         break;
     } else if (elegirOpcion == 2){
@@ -72,11 +74,12 @@ while (true){
     }
 }
 
+//Función filtrar
 const clasiFiltrado = clientesRemiseria.filter(cliente => cliente.clasificacion.toUpperCase() === "VIP");
 
 console.log(clienteElegido);
 
-//Variables
+//Preguntas sobre km y precios
 let kmDelViaje = parseInt(prompt("Ingresa la cantidad de km del viaje."));
 
 let valorDelKm = parseInt(prompt("Ingresa el valor del km para este viaje"));
@@ -114,7 +117,7 @@ function espera0(kmDelViaje, valorDelKm) {
 
         if (factura == 1) {
             let Total = totalViaje * 1.21;
-
+            //Funcion filtrar para comparar nombre del cliente elegido, con función de filtrado clasificación VIP.
             if (clasiFiltrado.find(cliente => cliente.nombre === clienteElegido.nombre)){
                 descuentoVipFactura = Total * 0.90;
                 alert("🎉Felicidades🎉 " + clienteElegido.nombre + " como cliente VIP, hemos aplicado un descuento especial a su tarifa. El precio final del viaje es aún más bajo de lo que esperaba, el total a pagar con factura es $" + descuentoVipFactura);
@@ -124,7 +127,7 @@ function espera0(kmDelViaje, valorDelKm) {
                 break; // Salir del bucle
             }
         } else if (factura == 2) {
-
+            //Funcion filtrar para comparar nombre del cliente elegido, con función de filtrado clasificación VIP.
             if (clasiFiltrado.find(cliente => cliente.nombre === clienteElegido.nombre)){
                 descuentoVip = totalViaje * 0.90;
                 alert("🎉Felicidades🎉 " + clienteElegido.nombre + " como cliente VIP, hemos aplicado un descuento especial a su tarifa. El precio final del viaje es aún más bajo de lo que esperaba, el total a pagar es $" + descuentoVip);
@@ -151,7 +154,7 @@ function espera1(kmDelViaje, valorDelKm) {
 
         if (factura == 1) {
             let Total = totalViajeConEspera * 1.21;
-
+            //Funcion filtrar para comparar nombre del cliente elegido, con función de filtrado clasificación VIP.
             if (clasiFiltrado.find(cliente => cliente.nombre === clienteElegido.nombre)){
                 let descuentoVipFactura = Total * 0.90;
                 alert("🎉Felicidades🎉 " + clienteElegido.nombre + " como cliente VIP, hemos aplicado un descuento especial a su tarifa. El precio final del viaje es aún más bajo de lo que esperaba, el total a pagar con factura es $" + descuentoVipFactura);
@@ -161,7 +164,7 @@ function espera1(kmDelViaje, valorDelKm) {
                 break; // Salir del bucle
             }
         } else if (factura == 2) {
-
+            //Funcion filtrar para comparar nombre del cliente elegido, con función de filtrado clasificación VIP.
             if (clasiFiltrado.find(cliente => cliente.nombre === clienteElegido.nombre)){
                 let descuentoVip = totalViajeConEspera * 0.90;
                 alert("🎉Felicidades🎉 " + clienteElegido.nombre + " como cliente VIP, hemos aplicado un descuento especial a su tarifa. El precio final del viaje es aún más bajo de lo que esperaba, el total a pagar es $" + descuentoVip);

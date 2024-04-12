@@ -39,7 +39,7 @@ const clientesRemiseria = [
 
 console.log(clientesRemiseria)
 
-const clasiFiltrado = clientesRemiseria.filter(cliente => cliente.clasificacion === "VIP");
+
 
 let clienteElegido
 let esperaEnElViaje;
@@ -51,7 +51,7 @@ let descuentoVipFactura
 
 while (true){
 
-    let elegirOpcion = parseInt(prompt("Ingrese el numero de la opción deseada:\n 1- Quiere buscar un cliente?\n 2-Agregar nuevo cliente?"));
+    let elegirOpcion = parseInt(prompt("Ingrese el numero de la opción deseada:\n 1- Quiere buscar un cliente?\n 2- Agregar nuevo cliente?"));
 
     if (elegirOpcion == 1){
     let elegirCliente = prompt("Ingrese el nombre del cliente a buscar.");
@@ -62,7 +62,7 @@ while (true){
         nombre = prompt ("Ingrese el nombre del nuevo cliente.");
         direccion = prompt("Ingrese la direccion del cliente nuevo.");
         telefono = parseInt(prompt("Ingresa el numero de telefono del nuevo cliente"));
-        clasificacion = prompt("Ingrese el tipo de clasificacion de cliente./n Ingrese una de las opciones: VIP o Basico.");
+        clasificacion = prompt("Ingrese el tipo de clasificacion de cliente./n Ingrese una de las opciones: VIP o Basico.").toUpperCase();
         const nuevoCliente = new clientesNuevos(nombre,direccion,telefono,clasificacion);
         clientesRemiseria.push(nuevoCliente);
         clienteElegido = nuevoCliente;
@@ -71,6 +71,8 @@ while (true){
         alert("Código incorrecto. Por favor, ingrese un codigo valido.?");
     }
 }
+
+const clasiFiltrado = clientesRemiseria.filter(cliente => cliente.clasificacion.toUpperCase() === "VIP");
 
 console.log(clienteElegido);
 
@@ -115,7 +117,7 @@ function espera0(kmDelViaje, valorDelKm) {
 
             if (clasiFiltrado.find(cliente => cliente.nombre === clienteElegido.nombre)){
                 descuentoVipFactura = Total * 0.90;
-                alert("🎉Felicidades🎉 " + clienteElegido.nombre + "Como cliente VIP, hemos aplicado un descuento especial a su tarifa. El precio final del viaje es aún más bajo de lo que esperaba, el total a pagar con factura es $" + descuentoVipFactura);
+                alert("🎉Felicidades🎉 " + clienteElegido.nombre + " como cliente VIP, hemos aplicado un descuento especial a su tarifa. El precio final del viaje es aún más bajo de lo que esperaba, el total a pagar con factura es $" + descuentoVipFactura);
                 break;           
             } else {
                 alert(clienteElegido.nombre + " el precio del viaje final con factura es $" + Total);
@@ -125,7 +127,7 @@ function espera0(kmDelViaje, valorDelKm) {
 
             if (clasiFiltrado.find(cliente => cliente.nombre === clienteElegido.nombre)){
                 descuentoVip = totalViaje * 0.90;
-                alert("🎉Felicidades🎉 " + clienteElegido.nombre + "Como cliente VIP, hemos aplicado un descuento especial a su tarifa. El precio final del viaje es aún más bajo de lo que esperaba, el total a pagar es $" + descuentoVip);
+                alert("🎉Felicidades🎉 " + clienteElegido.nombre + " como cliente VIP, hemos aplicado un descuento especial a su tarifa. El precio final del viaje es aún más bajo de lo que esperaba, el total a pagar es $" + descuentoVip);
                 break;
             } else {
                 alert("Gracias " + clienteElegido.nombre + " por viajar con nosotros, el total del viaje es $" + totalViaje);
@@ -152,7 +154,7 @@ function espera1(kmDelViaje, valorDelKm) {
 
             if (clasiFiltrado.find(cliente => cliente.nombre === clienteElegido.nombre)){
                 let descuentoVipFactura = Total * 0.90;
-                alert("🎉Felicidades🎉 " + clienteElegido.nombre + "Como cliente VIP, hemos aplicado un descuento especial a su tarifa. El precio final del viaje es aún más bajo de lo que esperaba, el total a pagar con factura es $" + descuentoVipFactura);
+                alert("🎉Felicidades🎉 " + clienteElegido.nombre + " como cliente VIP, hemos aplicado un descuento especial a su tarifa. El precio final del viaje es aún más bajo de lo que esperaba, el total a pagar con factura es $" + descuentoVipFactura);
                 break;
             } else {
                 alert(clienteElegido.nombre + " el precio del viaje final con factura es $" + Total);
@@ -162,7 +164,7 @@ function espera1(kmDelViaje, valorDelKm) {
 
             if (clasiFiltrado.find(cliente => cliente.nombre === clienteElegido.nombre)){
                 let descuentoVip = totalViajeConEspera * 0.90;
-                alert("🎉Felicidades🎉 " + clienteElegido.nombre + "Como cliente VIP, hemos aplicado un descuento especial a su tarifa. El precio final del viaje es aún más bajo de lo que esperaba, el total a pagar es $" + descuentoVip);
+                alert("🎉Felicidades🎉 " + clienteElegido.nombre + " como cliente VIP, hemos aplicado un descuento especial a su tarifa. El precio final del viaje es aún más bajo de lo que esperaba, el total a pagar es $" + descuentoVip);
                 break;
             } else {
                 alert("Gracias " + clienteElegido.nombre + " por viajar con nosotros, el total del viaje es $" + totalViajeConEspera);
